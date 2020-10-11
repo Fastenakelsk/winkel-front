@@ -12,8 +12,8 @@ export class GebruikersService {
     private http: HttpClient,
   ) {}
 
-  getGebruikers(): Observable<Gebruiker>{
-    return this.http.get<Gebruiker>(`${environment.apiUrl}/gebruikers`);
+  getGebruikers(): Observable<Gebruiker[]>{
+    return this.http.get<Gebruiker[]>(`${environment.apiUrl}/gebruikers`);
   }
 
 }

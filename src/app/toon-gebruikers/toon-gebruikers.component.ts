@@ -8,29 +8,23 @@ import { Gebruiker } from 'src/shared/models/gebruiker';
   styleUrls: ['./toon-gebruikers.component.css']
 })
 export class ToonGebruikersComponent implements OnInit {
-  //gebruiker: Gebruiker;
-  gebruiker2: Gebruiker;
+  //Zorg ervoor dat het type dat je kiest in de service exact overeenkomt met het type dat je hier instantieert.
+  //Doe je dit verkeerd krijg je volgende error:
+  //Type 'Gebruiker' is missing the following properties from type 'Gebruiker[]': length, pop, push, concat, and 26 more.
+  gebruikers: Gebruiker[] = [];
 
   constructor(
     private gebruikersService: GebruikersService
-  ) { 
-
-  }
+  ) {}
 
   ngOnInit() {
     console.log('hier');
-    /*this.gebruikersService.getGebruikers().subscribe(gebruikerLijst => {
-      this.gebruiker._id = gebruikerLijst._id;
-      this.gebruiker.achternaam = gebruikerLijst.achternaam;
-      this.gebruiker.voornaam = gebruikerLijst.voornaam;
-    });*/
-    let gebruiker2: Gebruiker = new Gebruiker();
-    
-    gebruiker2.voornaam = "test";
-    gebruiker2.achternaam = "test";
+    this.gebruikersService.getGebruikers().subscribe(res => {
+      this.gebruikers = res;
+    });
 
-    //console.log(this.gebruiker);
-    console.log(gebruiker2);
+    console.log(this.gebruikers);
+
   }
 
 }

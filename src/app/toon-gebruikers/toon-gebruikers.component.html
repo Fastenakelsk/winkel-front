@@ -1,3 +1,13 @@
 <p>toon-gebruikers works!</p>
 
-<p [value]="gebruiker2">{{ gebruiker2.achternaam }}</p>
+<ol>
+  <li *ngFor="let gebruiker of gebruikers">
+    {{ gebruiker.voornaam }}
+  </li>
+</ol>
+
+<ol>
+  <li *ngFor="let gebruiker of testGebruikers">
+    {{ gebruiker.voornaam }}
+  </li>
+</ol>
